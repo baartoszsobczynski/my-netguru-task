@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   end
 
   root 'categories#index'
-  devise_for :users
+  devise_for :users, controllers: {registrations: "registrations"}
 end
