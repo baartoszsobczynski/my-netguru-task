@@ -33,7 +33,7 @@ Setup the database for your application (development and test environments):
 3. Check `spec/controllers/categories_controller_spec.rb` - there should be a
    couple errors on actions checking admin presence. (done)
 
-4. Next up: `Product` model and `spec/models/product_spec.rb`. Play with validations a bit, calculate average rating and you'll be good to go.
+4. Next up: `Product` model and `spec/models/product_spec.rb`. Play with validations a bit, calculate average rating and you'll be good to go. (done)
 
 5. Fix specs for `Category` model.
 
