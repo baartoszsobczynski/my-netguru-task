@@ -23,7 +23,7 @@ Setup the database for your application (development and test environments):
 
 ### Issues to solve:
 
-1. There are a few missing fields on the `User` model. Make sure `spec/models/user_spec.rb passes.`
+1. There are a few missing fields on the `User` model. Make sure `spec/models/user_spec.rb passes.` (done)
 
 2. Make sure settings for [devise](https://github.com/plataformatec/devise) are
    configured properly.  If they aren’t, most of the controller specs will fail: 
