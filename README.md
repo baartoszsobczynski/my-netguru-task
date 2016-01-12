@@ -41,7 +41,7 @@ Setup the database for your application (development and test environments):
 
 7. You'll have to deal with `ProductsController`. Again, you'll have to check for permissions. Only a product owner should be able to make changes. Make sure to give the user a proper message when they try to perform forbidden actions. **(done)**
 
-8. Make sure `ReviewDecorator` is used properly, There's one action which needs to be declared there. See `spec/decorators/review_decorator_spec.rb` for details.
+8. Make sure `ReviewDecorator` is used properly, There's one action which needs to be declared there. See `spec/decorators/review_decorator_spec.rb` for details. **(done)**
 
 9. Check if each review is assigned to user who wrote it.
 
