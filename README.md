@@ -28,10 +28,10 @@ Setup the database for your application (development and test environments):
 2. Make sure settings for [devise](https://github.com/plataformatec/devise) are
    configured properly.  If they aren’t, most of the controller specs will fail: 
   * Most of the configuration changes require the server to be restarted.
-  * At some point **you'll have to overwrite the default devise views** - you can find all the required info in the gem readme.
+  * At some point **you'll have to overwrite the default devise views** - you can find all the required info in the gem readme. (done)
   
 3. Check `spec/controllers/categories_controller_spec.rb` - there should be a
-   couple errors on actions checking admin presence.
+   couple errors on actions checking admin presence. (done)
 
 4. Next up: `Product` model and `spec/models/product_spec.rb`. Play with validations a bit, calculate average rating and you'll be good to go.
 
