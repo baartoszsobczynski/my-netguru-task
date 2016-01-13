@@ -50,8 +50,12 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    category.destroy
-    redirect_to categories_url, notice: 'Category was successfully destroyed.'
+    unless current_user.admin?
+      redirect_to(new_user_session_path)
+    else
+      category.destroy
+      redirect_to categories_url, notice: 'Category was successfully destroyed.'
+    end
   end
 
   private

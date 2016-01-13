@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if current_user != product.user
+    if (current_user != product.user) && (!current_user.admin?)
       redirect_to(category_product_url(category, product))
       flash[:error] = 'You are not allowed to edit this product.'
     end
@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if current_user != product.user
+    if (current_user != product.user) && (!current_user.admin?)
       redirect_to(category_product_url(category, product))
       flash[:error] = 'You are not allowed to edit this product.'
     else
@@ -49,8 +49,13 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1
   def destroy
-    product.destroy
-    redirect_to category_url(product.category), notice: 'Product was successfully destroyed.'
+    if (current_user != product.user) && (!current_user.admin?)
+      redirect_to(category_product_url(category, product))
+      flash[:error] = 'You are not allowed to destroy this product.'
+    else
+      product.destroy
+      redirect_to category_url(product.category), notice: 'Product was successfully destroyed.'
+    end
   end
 
   private

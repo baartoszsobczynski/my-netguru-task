@@ -2,8 +2,9 @@
 %p#error= flash[:error]
 
 %p
-  %b Title:
-  = product.title
+  %h1
+    %b
+    = product.title
 %p
   %b Description:
   = product.description
@@ -15,11 +16,20 @@
   %b Category
   = product.category.name
 
+%p
+  %b Added by:
+  = "#{product.user.firstname} #{product.user.lastname}"
+
 %h3 Reviews
-= render 'reviews/form'
+- if product.reviews.empty?
+  %p No reviews yet.
+- else
+  = render reviews
 
-= render reviews
+- if current_user
+  = render 'reviews/form'
 
-= link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-warning'
-\|
+- if (current_user && current_user == product.user) || (current_user && current_user.admin?)
+  = link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-warning'
+  \|
 = link_to 'Back', category_products_path, class: 'btn btn-primary'
