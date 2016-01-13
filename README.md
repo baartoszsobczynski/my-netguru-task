@@ -43,7 +43,7 @@ Setup the database for your application (development and test environments):
 
 8. Make sure `ReviewDecorator` is used properly, There's one action which needs to be declared there. See `spec/decorators/review_decorator_spec.rb` for details. **(done)**
 
-9. Check if each review is assigned to user who wrote it.
+9. Check if each review is assigned to user who wrote it. **(done)**
 
 10. If some actions (like links to edit a page, create a new one) are not allowed for a particular user then please hide them in a template (for example with `if`).
 
