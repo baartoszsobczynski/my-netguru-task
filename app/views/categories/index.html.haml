@@ -1,18 +1,19 @@
 #index
   %h1 Categories
 
+  - if current_user && current_user.admin?
+    = link_to 'New Category', new_category_path, class: "btn btn-default btn-lg"
+
   %table.table
     - categories.each do |category|
       %tr
         %td= "#{link_to category.name, category} <small>(#{pluralize(category.products.count, 'product')})</small>".html_safe
         - if current_user && current_user.admin?
           %td
-            #dropdown
-              %button.btn.btn-primary.dropdown-toggle{type: "button", "data-toggle" => "dropdown"}
-                Dropdown
-                %span.caret
-              %ul.dropdown-menu
-                %li= link_to "Profile", root_path
+            = link_to 'Edit', edit_category_path(category), class: "btn btn-default"
+          %td
+            = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
+
 -#%h1 Listing categories
 -#
 -#%table.table
