@@ -1,0 +1,26 @@
+#index {
+  h1 {
+    text-align: center;
+  }
+
+  table {
+    margin-top: 70px;
+
+    tr {
+      &:hover {
+        background-color: #e5f5ff;
+      }
+
+      td {
+        font-size: large;
+        text-align: center;
+        border: 1px solid #ccebff;
+        border-left: none;
+        border-right: none;
+        &:hover {
+        }
+      }
+
+    }
+  }
+}

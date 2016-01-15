@@ -1,27 +1,11 @@
 !!!
 %html{ lang: 'en' }
-  %head
-    %meta{ charset: 'utf-8' }/
-    %meta{ content: 'IE=Edge,chrome=1', 'http-equiv' => 'X-UA-Compatible' }/
-    %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }/
-    = csrf_meta_tags
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
-
+  =render partial: "layouts/head"
   %body
-    %nav.navbar.navbar-default
-      .container-fluid
-        .navbar-header
-          %span.navbar-brand
-            =link_to AppConfig.workshops_name, root_path
-        %p.navbar-text.navbar-right
-          - if current_user
-            = "Logged as #{current_user.firstname}, #{link_to "log out", destroy_user_session_path, :method => :delete}".html_safe
-          - else
-            = link_to "Log in", new_user_session_path
-    .container-fluid
+    =render partial: "layouts/navigation"
+    .container
       .row
         .col-lg-12
+          - if !current_user
+            .alert.alert-info{role: "alert"}= "Some functionality is not available for you. You can #{link_to "log in", new_user_session_path} or #{link_to "register", new_user_registration_path}.".html_safe
           = yield
-
-
