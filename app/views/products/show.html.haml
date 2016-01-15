@@ -29,5 +29,6 @@
     -#=render "reviews/form"
     - product.reviews.each do |review|
       =render "reviews/review", review: review
-    #my-own-form
-      =render "reviews/form"
+    - if current_user
+      #my-own-form
+        =render "reviews/form"
