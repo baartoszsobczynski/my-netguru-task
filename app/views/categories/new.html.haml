@@ -1,5 +1,7 @@
-%h1 New category
+#new_category
 
-= render 'form'
+  %h1 Adding new category
+  = link_to 'Back', categories_path, class: 'btn btn-default btn-lg'
 
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+  = render 'form'
+

@@ -1,6 +1,4 @@
-#index {
-  text-align: center;
-
+#index_category {
   h1 {
     text-align: center;
   }
@@ -24,5 +22,33 @@
       }
 
     }
+  }
+}
+
+#new_category {
+  form {
+    margin-top: 70px;
+    input {
+    }
+  }
+
+  .form-control {
+    margin: 0 auto;
+    width: 30%;
+    /* Or fill in whatever width and height values you need */
+  }
+}
+
+#edit_category {
+  form {
+    margin-top: 70px;
+    input {
+    }
+  }
+
+  .form-control {
+    margin: 0 auto;
+    width: 30%;
+    /* Or fill in whatever width and height values you need */
   }
 }
