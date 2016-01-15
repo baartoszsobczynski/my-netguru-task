@@ -5,4 +5,5 @@
   = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-lg"
   = link_to 'Back', categories_path, class: 'btn btn-default btn-lg'
 
-  = render 'form', type: "edit"
+  #my-own-form
+    = render 'form'

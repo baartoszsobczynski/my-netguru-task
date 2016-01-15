@@ -1,35 +1,22 @@
-%p#notice= notice
-%p#error= flash[:error]
+#show_product
 
-%p
-  %h1
-    %b
-    = product.title
-%p
-  %b Description:
-  = product.description
-%p
-  %b Price:
-  = product.price
+  = link_to "Back", category, class: "btn btn-default btn-lg glyphicon glyphicon-chevron-left"
 
-%p
-  %b Category
-  = product.category.name
+  #product_box
+    #title
+      =product.title
 
-%p
-  %b Added by:
-  = "#{product.user.firstname} #{product.user.lastname}"
+    #price
+      ="Price: #{product.price}$"
 
-%h3 Reviews
-- if product.reviews.empty?
-  %p No reviews yet.
-- else
-  = render reviews
+    #category
+      ="Product from category: #{link_to product.category.name, category}".html_safe
 
-- if current_user
-  = render 'reviews/form'
+    #description
+      =product.description
 
-- if (current_user && current_user == product.user) || (current_user && current_user.admin?)
-  = link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-warning'
-  \|
-= link_to 'Back', category_products_path, class: 'btn btn-primary'
+    #created_at
+      =product.created_at
+
+    #added_by
+      ="Added by: #{User.find(product.user_id).full_name}".html_safe

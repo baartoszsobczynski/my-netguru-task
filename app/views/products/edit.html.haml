@@ -1,7 +1,9 @@
-%h1 Editing product
+#edit_category
 
-= render 'form'
+  %h1 Editing product
+  = link_to 'Show', category_product_path, class: "btn btn-primary btn-lg"
+  = link_to 'Delete', category_product_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-lg"
+  = link_to 'Back', category, class: 'btn btn-default btn-lg'
 
-= link_to 'Show', category_product_path(category, product)
-\|
-= link_to 'Back', category_path(category)
+  #my-own-form
+    = render 'form'

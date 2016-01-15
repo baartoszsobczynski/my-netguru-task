@@ -1,5 +1,8 @@
-%h1 New product
+#new_product
+  %h1 Add product
+  = link_to 'Back', category, class: 'btn btn-default btn-lg'
 
-= render 'form'
+  #my-own-form
+    = render 'form'
 
-= link_to 'Back', category_products_path
+

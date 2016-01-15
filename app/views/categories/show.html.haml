@@ -1,21 +1,37 @@
-%p#notice= notice
+#show_category
+  %h1= category.name
+  - if current_user && current_user.admin?
+    = link_to 'Edit', edit_category_path(category), class: "btn btn-default btn-lg glyphicon glyphicon-edit"
+  = link_to 'Back', categories_path, class: 'btn btn-default btn-lg glyphicon glyphicon-chevron-left'
 
-%p
-  %h1
-    %b
-      = category.name
+  #products_list
+    - if category.products.empty?
+      .alert.alert-info{role: "alert"} No products in this category.
 
-%p
-  - category.products.each do |product|
-    = link_to product.title, category_product_path(category_id: category.id)
+  #new_product_button
+    = link_to 'Add product', new_category_product_path(category), class: "btn btn-success"
 
+  %table.table
+    - category.products.each do |product|
+      %tr
+        %td= "#{link_to product.title, category_product_path(category, product)} <small>(price: #{product.price})</small>".html_safe
+        - if (current_user && current_user.admin?)
+          %td
+            = link_to 'Edit', edit_category_product_path(category, product), class: "btn btn-default glyphicon glyphicon-edit"
+          %td
+            = link_to 'Destroy', category_product_path(category, product), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning glyphicon glyphicon-fire"
 
-  - if current_user
-    %p
-      %h3 New product
-      = render 'products/form'
-
-- if current_user && current_user.admin?
-  = link_to 'Edit', edit_category_path(category), class: 'btn btn-warning'
-  \|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+  -#%p
+  -#  - category.products.each do |product|
+  -#    = link_to product.title, category_product_path(category_id: category.id)
+  -#
+  -#
+  -#  - if current_user
+  -#    %p
+  -#      %h3 New product
+  -#      = render 'products/form'
+  -#
+  -#- if current_user && current_user.admin?
+  -#  = link_to 'Edit', edit_category_path(category), class: 'btn btn-warning'
+  -#  \|
+  -#= link_to 'Back', categories_path, class: 'btn btn-primary'
