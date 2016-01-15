@@ -5,6 +5,7 @@
         =link_to AppConfig.workshops_name, root_path
     %p.navbar-text.navbar-right
       - if current_user
-        = "Logged as #{current_user.firstname}, #{link_to "log out", destroy_user_session_path, method: :delete}".html_safe
+        = "Logged as #{link_to current_user.firstname, user_path(current_user)}".html_safe
+        = "#{link_to "Log out", destroy_user_session_path, method: :delete}".html_safe
       - else
         = link_to "Log in", new_user_session_path

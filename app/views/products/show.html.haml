@@ -19,4 +19,5 @@
       =product.created_at
 
     #added_by
-      ="Added by: #{User.find(product.user_id).full_name}".html_safe
+      - user = User.find(product.user_id)
+      ="Added by: #{link_to user.full_name, user_path(user)}".html_safe
