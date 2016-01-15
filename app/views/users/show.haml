@@ -3,3 +3,10 @@
   #user_name= user.full_name
   #email= user.email
   #last_visit= "Last visited #{user.last_sign_in_at}"
+
+  #reviews_box
+    #review_header
+      = "Last 5 #{user.firstname}\'s reviews"
+
+    - user.reviews.last(5).each do |review|
+      =render "reviews/review", review: review

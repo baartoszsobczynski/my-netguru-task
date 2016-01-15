@@ -38,3 +38,15 @@ Category.all.each do |c|
     Product.create(title: title, description: description, price: price, category_id: category_id, user_id: user_id)
   end
 end
+
+Product.all.each do |product|
+  (3..7).to_a.sample.times do |i|
+    content_length = (1..4).to_a.sample
+    content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit." * content_length
+    rating = (1..5).to_a.sample
+    product_id = product.id
+    user_id = User.all.to_a.sample.id
+    Review.create(content: content, rating: rating, product_id: product_id, user_id: user_id)
+  end
+end
+

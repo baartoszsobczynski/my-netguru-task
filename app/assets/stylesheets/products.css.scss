@@ -36,3 +36,25 @@
     }
   }
 }
+
+#reviews_box {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+#review_header {
+  text-align: left;
+  font-size: 1.2em;
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 30px;
+}
+
+#review_author {
+  border-bottom: 1px solid #e7e7e7;
+}
+
+#review_content {
+  padding-top: 15px;
+  margin-bottom: 30px;
+}

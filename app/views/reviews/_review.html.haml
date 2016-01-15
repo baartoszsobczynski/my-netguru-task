@@ -1,4 +1,4 @@
-%p= review.content
-%p
-  %b= review.rating
-  %em= review.author
+#review_author
+  = "#{link_to review.author, user_path(review.user)} #{review.stars_rating} Added: #{review.created_at.strftime("%m/%d/%y")}".html_safe
+#review_content
+  = review.content

@@ -1,9 +1,9 @@
 #edit_category
 
   %h1 Editing product
-  = link_to 'Show', category_product_path, class: "btn btn-primary btn-lg"
-  = link_to 'Delete', category_product_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-lg"
-  = link_to 'Back', category, class: 'btn btn-default btn-lg'
+  = link_to 'Show', category_product_path, class: "btn btn-primary btn-lg glyphicon glyphicon-chevron-right"
+  = link_to 'Delete', category_product_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-lg glyphicon glyphicon-fire"
+  = link_to 'Back', category, class: 'btn btn-default btn-lg glyphicon glyphicon-chevron-left'
 
   #my-own-form
     = render 'form'
